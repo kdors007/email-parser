@@ -1,0 +1,16 @@
+<%= link_to "Return", '/' %><br><br>
+
+<%= @parse.return_path %><br>
+<%= @parse.date %><br>
+<%= @parse.from %><br>
+<%= @parse.to %><br>
+<%= @parse.message_id %><br>
+<%= @parse.subject %><br>
+<br><br>
+<% @parse.body.each do |line| %>
+	<div>
+
+		<%= line %>
+		
+	</div>
+<% end %>

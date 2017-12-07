@@ -1,0 +1,40 @@
+<h1 align="center">Email Parser - Kareem Dorset</h1>
+
+
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+
+<br />
+<div align="center">
+	<%= link_to "New File", new_email_path, class: "btn btn-primary" %>
+	<p>Upload your .txt file here.</p>
+</div>
+<br />
+<br />
+
+<table class = "table table-bordered table-striped">
+   <thead>
+      <tr>
+         <th>Name</th>
+         <th>Delete</th>
+         <th>Parse </th>
+      </tr>
+   </thead>
+   
+   <tbody>
+      <% @emails.each do |file| %>
+         
+         <tr>
+            <td><%= file.name %></td>
+            <td><%= button_to "Delete",  file, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{file.name}?" %></td>
+            <td><%= button_to "Parse", email_path(file), method: :get, class: "btn btn-success" %></td>
+         </	tr>
+         
+      <% end %>
+   </tbody>
+   
+</table>
+
